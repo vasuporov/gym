@@ -1,0 +1,25 @@
+/** fees status **/
+.PAID{
+background-color: #5cb85c;
+}
+
+.UNPAID{
+background-color: #d9534f;
+}
+.NA{
+background-color: #777;
+}
+
+
+.attendance-div{
+margin:5px 5px 5px 5px;
+}
+.attendance-div:hover{
+cursor: hand;
+}
+.label-absent{
+background-color:#f0f0f0;
+}
+.label-present{
+background-color:#5cb85c;
+}

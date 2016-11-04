@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="breadcrumbs">
+<a href="{% url 'home' %}">Home</a>
+&rsaquo; Member
+</div>
+
+<div class="container">
+
+    <h2 class="main-heading"> Member Details</h2>
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <img src="{{ STATIC_URL }}{{ member.photo }}" width="200px" height="250px"/>
+        </div>
+
+        <div class="col-md-8">
+            <div>
+                Name : {{ member.first_name }} {{ member.last_name }}
+            </div>
+
+            <div>
+                Gender : {{ member.gender }}
+            </div>
+
+            <div>
+                Phone : {{ member.phone }}
+            </div>
+
+            <div>
+                Joining Date : {{ member.joining_date.date }}
+            </div>
+
+            <div>
+                Leaving Date : {{ member.leaving_date.date }}
+            </div>
+
+            <div>
+                Date of birth : {{ member.date_of_birth.date }}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

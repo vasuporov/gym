@@ -1,0 +1,69 @@
+
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="breadcrumbs">
+<a href="{% url 'home' %}">Home</a>
+&rsaquo; Dashboard
+</div>
+
+    <!-- Content -->
+    <div id="content" class="colM">
+
+        <div class="main-menu col-md-8">
+            <div class="col-md-12">
+                 {% for fees_structure in fees_structures %}
+                 <span class="label-warning">{{fees_structure.fees_structure_type}} Fees : RS {{fees_structure.fees_amount}}</span><br/>
+                 {% endfor %}
+            </div>
+
+
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" onclick="document.location.href='{% url 'add_gym_member' %}'">Add New Member</button>
+                <div class="col-md-1"></div>
+                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" data-toggle="modal" data-target="#setFeesStructureModal">Set Fees Structure</button>
+                <div class="col-md-1"></div>
+                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" data-toggle="modal" data-target="#payFees">Pay Fees</button>
+                <div class="col-md-1"></div>
+
+            </div>
+
+            <div class="col-md-12"><br/><br/></div>
+
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" data-toggle="modal" data-target="#removeMember">Remove Member</button>
+                <div class="col-md-1"></div>
+                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" onclick="document.location.href='{% url 'list_gym_members' %}'">Members list</button>
+                <div class="col-md-1"></div>
+                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" onclick="document.location.href='{% url 'check_fees_status' %}'">Check Fees Status</button>
+                <div class="col-md-1"></div>
+            </div>
+
+            <div class="col-md-12"><br/><br/></div>
+
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" onclick="document.location.href='{% url 'mark_daily_attendance' %}'" >Mark Daily Attendance</button>
+                <div class="col-md-1"></div>
+
+            </div>
+
+            <br />
+        </div>
+
+
+        <div class="side-menu col-md-4" >
+            Alerts
+        </div>
+
+    </div>
+
+{% include '_set_fees_structures.html' %}
+
+{% include '_remove_member.html' %}
+
+{% include '_pay_fees.html' %}
+
+
+{% endblock %}
+

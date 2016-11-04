@@ -1,0 +1,176 @@
+
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="breadcrumbs">
+<a href="{% url 'home' %}">Home</a>
+&rsaquo; Edit Gym Member
+</div>
+
+<div class="container">
+
+    <h2 class="main-heading">Edit New Gym Member</h2>
+
+    <form method="post"  class="form-horizontal" role="form" enctype="multipart/form-data" action="{% url 'edit_gym_member' _id=member_id %}">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                Enter details of member:
+              </h4>
+            </div>
+
+            <div id="collapse1" class="panel-collapse collapse in">
+                  <div class="panel-body">
+
+                        {% csrf_token %}
+
+                      {{ add_member_form.non_field_errors }}
+                      <div class="form-container">
+
+                         <div class="col-md-12">
+                            <div class="col-md-6">
+                                 <h4>Personal Info</h4>
+                                <input type="hidden" name="member_id" value="{{ member_id }}" />
+                                 <div class="form-group">
+                                    <label for="{{ add_member_form.first_name.id_for_label }}" class="control-label col-lg-4 ">First Name <span class="required">*</span>:</label>
+                                    <div class="col-lg-8">
+                                        {{ add_member_form.first_name   }}
+                                        {{ add_member_form.first_name.errors }}
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group">
+                                    <label for="{{ add_member_form.last_name.id_for_label }}" class="control-label col-lg-4 ">Last Name <span class="required">*</span>:</label>
+                                    <div class="col-lg-8">
+                                        {{ add_member_form.last_name   }}
+                                        {{ add_member_form.last_name.errors }}
+                                    </div>
+                                 </div>
+
+                                  <div class="form-group">
+                                    <label for="{{ add_member_form.gender.id_for_label }}" class="control-label col-lg-4 ">Gender <span class="required">*</span>:</label>
+                                    <div class="col-lg-8">
+                                        {{ add_member_form.gender   }}
+                                        {{ add_member_form.gender.errors }}
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="{{ add_member_form.date_of_birth.id_for_label }}" class="control-label col-lg-4 ">Date of Birth <span class="required">*</span>:</label>
+                                    <div class="col-lg-8">
+                                        {{ add_member_form.date_of_birth   }}
+                                        {{ add_member_form.date_of_birth.errors }}
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="{{ add_member_form.phone.id_for_label }}" class="control-label col-lg-4 ">Phone Number <span class="required">*</span>:</label>
+                                    <div class="col-lg-8">
+                                        {{ add_member_form.phone   }}
+                                        {{ add_member_form.phone.errors }}
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="{{ add_member_form.photo.id_for_label }}" class="control-label col-lg-4 ">Upload Photo :</label>
+                                    <div class="col-lg-8">
+                                        {{ add_member_form.photo   }}
+                                        {{ add_member_form.photo.errors }}
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="{{ add_member_form.fees_structure.id_for_label }}" class="control-label col-lg-4 ">Fees Plan <span class="required">*</span>:</label>
+                                    <div class="col-lg-8">
+                                        {{ add_member_form.fees_structure   }}
+                                        {{ add_member_form.fees_structure.errors }}
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="{{ add_member_form.joining_date.id_for_label }}" class="control-label col-lg-4 ">Joining Date <span class="required">*</span>:</label>
+                                    <div class="col-lg-8">
+                                        {{ add_member_form.joining_date   }}
+                                        {{ add_member_form.joining_date.errors }}
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h4>Member's Bio:</h4>
+
+                                    <div class="form-group">
+                                    <label for="{{ add_member_form.height.id_for_label }}" class="control-label col-lg-4 ">Height :</label>
+                                        <div class="col-lg-8">
+                                            {{ add_member_form.height   }}
+                                            {{ add_member_form.height.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="{{ add_member_form.weight.id_for_label }}" class="control-label col-lg-4 ">Weight :</label>
+                                        <div class="col-lg-8">
+                                            {{ add_member_form.weight   }}
+                                            {{ add_member_form.weight.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="{{ add_member_form.biceps_right.id_for_label }}" class="control-label col-lg-4 ">Biceps Right :</label>
+                                        <div class="col-lg-8">
+                                            {{ add_member_form.biceps_right   }}
+                                            {{ add_member_form.biceps_right.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="{{ add_member_form.biceps_left.id_for_label }}" class="control-label col-lg-4 ">Biceps Left :</label>
+                                        <div class="col-lg-8">
+                                            {{ add_member_form.biceps_left   }}
+                                            {{ add_member_form.biceps_left.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="{{ add_member_form.triceps_right.id_for_label }}" class="control-label col-lg-4 ">Triceps Right :</label>
+                                        <div class="col-lg-8">
+                                            {{ add_member_form.triceps_right   }}
+                                            {{ add_member_form.triceps_right.errors }}
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="{{ add_member_form.triceps_left.id_for_label }}" class="control-label col-lg-4 ">Triceps Left :</label>
+                                        <div class="col-lg-8">
+                                            {{ add_member_form.triceps_left   }}
+                                            {{ add_member_form.triceps_left.errors }}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                              <div class="form-group">
+                                  <br/>
+                                  <div class="pull-right" style="margin-right:20px;" >
+
+                                    <button type="submit" class="btn btn-success" id="add_member_submit">Update</button>
+                                    <button type="reset" class="btn btn-danger"  onclick="document.location.href='{% url 'add_gym_member' %}'">Cancel</button>
+                                  </div>
+                              </div>
+
+
+
+                      </div>
+
+
+                  </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

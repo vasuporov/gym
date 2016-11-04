@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="breadcrumbs">
+<a href="{% url 'home' %}">Home</a>
+&rsaquo; Mark Daily Attendance
+</div>
+
+    <!-- Content -->
+    <div id="content" class="colM">
+    <h2>Mark Daily Attendance</h2>
+
+        {% for gym_member in gym_members %}
+        <div class="col-md-2 attendance-div  label-absent" title="Click to mark present/absent.">
+            <label class="text-center" >
+
+
+                <h4><img src="/static/img/users/tick.png" class="tick-image"  hidden="hidden" width="20px" height="20px" > {{gym_member.first_name}} {{gym_member.last_name}}</h4>
+                <img src="{{ STATIC_URL }}{{gym_member.photo}}" width="100%"  height="200px" style="padding-bottom: 10px;"/>
+                <input type="checkbox" class="present-checkbox" data-id="12" hidden="hidden" name="present">
+            </label>
+        </div>
+        {% endfor %}
+
+
+
+
+
+
+    </div>
+
+{% endblock %}
+
+
+{% block script %}
+<script>
+    $('.present-checkbox').click(function(){
+         if($(this).prop('checked') == true)
+          {
+                $(this).parent().parent().addClass("label-present");
+                $(this).parent().find('.tick-image').show();
+          }
+         else
+         {
+                $(this).parent().parent().removeClass("label-present");
+                $(this).parent().find('.tick-image').hide();
+         }
+        }
+    );
+</script>
+{% endblock %}
