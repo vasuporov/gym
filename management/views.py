@@ -7,7 +7,7 @@ import forms
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import os
-# Create your views here.
+from django.views.generic import ListView
 
 
 @login_required()
@@ -371,3 +371,31 @@ def get_member_details_ajax_call(request):
                                                       "fees_for_months": fees_for_months}})
     except Exception, e:
         return JsonResponse({"status": False, "data": {"fees_Structure": "None"}})
+
+
+def generate_csv(request):
+    from django.http import HttpResponse
+    import csv
+    response = HttpResponse(content_type="text/csv")
+
+    writer = csv.writer(response)
+    writer.writerow(['First Name, Last Name, Date of Birth'])
+    writer.writerow(['Udit', 'Porov', '09/07/1992'])
+    writer.writerow(['Sagar', 'Porov', '21/11/1989'])
+
+    return response
+
+
+def generate_pdf(request):
+    from django.http import HttpResponse
+    from reportlab.pdfgen import canvas
+
+    response = HttpResponse(content_type="application/pdf")
+    response['Content-Disposition'] = 'attachment; filename = "somefilename.pdf"'
+
+    canvas = canvas.Canvas(response)
+    canvas.drawString(300, 800, "Hello World!")
+    canvas.showPage()
+    canvas.save()
+
+    return response

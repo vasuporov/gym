@@ -31,5 +31,7 @@ urlpatterns = [
     url('^getmemberdetails/(?P<member_id>\d+)/$$', views.get_member_details, name='get_member_details'),
     url('^getmemberdetailsajax/$', views.get_member_details_ajax_call, name='get_member_details_ajax_call'),
     url('^markdailyattendance/$', views.mark_daily_attendance, name='mark_daily_attendance'),
-    url('^$', views.home, name="home")
+    url('^$', views.home, name="home"),
+    url('^generate_csv/$', views.generate_csv, name='generate_csv'),
+    url('^generate_pdf/$', views.generate_pdf, name='generate_pdf')
 ]

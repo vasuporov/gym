@@ -43,7 +43,12 @@
             <div class="col-md-12"><br/><br/></div>
 
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" onclick="document.location.href='{% url 'mark_daily_attendance' %}'" >Mark Daily Attendance</button>
+                <!--<button type="button" class="btn btn-primary col-md-3" style="height:80px;" onclick="document.location.href='{% url 'mark_daily_attendance' %}'" >Mark Daily Attendance</button>-->
+                <!--<div class="col-md-1"></div>-->
+                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" onclick="document.location.href='{% url 'generate_pdf' %}'">PDF response demo</button>
+                <div class="col-md-1"></div>
+
+                <button type="button" class="btn btn-primary col-md-3" style="height:80px;" onclick="document.location.href='{% url 'generate_csv' %}'">CSV response demo</button>
                 <div class="col-md-1"></div>
 
             </div>
