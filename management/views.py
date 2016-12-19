@@ -399,3 +399,14 @@ def generate_pdf(request):
     canvas.save()
 
     return response
+
+
+class GymMemberList(ListView):
+    model = GymMember
+    template_name = "generic_view_gymmember_list.html"
+    context_object_name = "gymmembers"
+
+    def get_context_data(self, **kwargs):
+        context = super(GymMemberList, self).get_context_data(**kwargs)
+        context['FeesPaymentHistory'] = FeesPaymentHistory.objects.all()
+        return context
