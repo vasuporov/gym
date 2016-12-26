@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import os
 from django.views.generic import ListView
+from django.utils.translation import ugettext
 
 
 @login_required()
@@ -410,3 +411,8 @@ class GymMemberList(ListView):
         context = super(GymMemberList, self).get_context_data(**kwargs)
         context['FeesPaymentHistory'] = FeesPaymentHistory.objects.all()
         return context
+
+
+def advance_template(request):
+
+    return render(request, 'advance_template.html', {"test_data": "Test Django Template <Strong> Escaping </Strong>"})

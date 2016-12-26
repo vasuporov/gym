@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    Value from context processor : {{ FEES_UNPAID_STATUS }}
+
+
+    <br>
+   Data with escaping : {{ test_data }}
+
+   <br>
+   Data without escaping : {{ test_data | safe }}
+
+{% endblock %}

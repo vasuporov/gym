@@ -34,5 +34,6 @@ urlpatterns = [
     url('^$', views.home, name="home"),
     url('^generate_csv/$', views.generate_csv, name='generate_csv'),
     url('^generate_pdf/$', views.generate_pdf, name='generate_pdf'),
-    url('^generic_view_gymmember/$', views.GymMemberList.as_view(), name='generic_view_gymmember')
+    url('^generic_view_gymmember/$', views.GymMemberList.as_view(), name='generic_view_gymmember'),
+    url('^advance-template/$', views.advance_template, name='advance_template')
 ]
