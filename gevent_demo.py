@@ -1,6 +1,7 @@
 import gevent
 import random
 import datetime
+from gevent import socket
 
 
 def foo():
@@ -50,6 +51,16 @@ def main_async_sync():
     async()
 
 
+def gevent_networking_example():
+    urls = ["www.google.com", "www.facebook.com"]
+
+    jobs = [gevent.spawn(socket.gethostbyname, url) for url in urls]
+    gevent.joinall(jobs, timeout=2)
+    for job in jobs:
+        print job.value
+
+
 if __name__ == '__main__':
     # main_foo_bar()
-    main_async_sync()
+    # main_async_sync()
+    gevent_networking_example()
